@@ -299,6 +299,8 @@ void CTaskBarDlg::DrawDisplayItem(IDrawCommon& drawer, DisplayItem type, CRect r
     // 绘制状态条
     if (type == TDI_CPU || type == TDI_MEMORY || type == TDI_GPU_USAGE || type == TDI_CPU_TEMP
         || type == TDI_GPU_TEMP || type == TDI_HDD_TEMP || type == TDI_MAIN_BOARD_TEMP || type == TDI_HDD_USAGE
+        || type == TDI_HDD1_TEMP || type == TDI_HDD2_TEMP || type == TDI_HDD3_TEMP
+        || type == TDI_HDD1_USAGE || type == TDI_HDD2_USAGE || type == TDI_HDD3_USAGE
         || type == TDI_UP || type == TDI_DOWN || type == TDI_TOTAL_SPEED/* ||type==TDI_CPU_FREQ*/)
     {
         int figure_value{};
@@ -322,11 +324,29 @@ void CTaskBarDlg::DrawDisplayItem(IDrawCommon& drawer, DisplayItem type, CRect r
         case TDI_HDD_TEMP:
             figure_value = theApp.m_hdd_temperature;
             break;
+        case TDI_HDD1_TEMP:
+            figure_value = theApp.m_hdd1_temperature;
+            break;
+        case TDI_HDD2_TEMP:
+            figure_value = theApp.m_hdd2_temperature;
+            break;
+        case TDI_HDD3_TEMP:
+            figure_value = theApp.m_hdd3_temperature;
+            break;
         case TDI_MAIN_BOARD_TEMP:
             figure_value = theApp.m_main_board_temperature;
             break;
         case TDI_HDD_USAGE:
             figure_value = theApp.m_hdd_usage;
+            break;
+        case TDI_HDD1_USAGE:
+            figure_value = theApp.m_hdd1_usage;
+            break;
+        case TDI_HDD2_USAGE:
+            figure_value = theApp.m_hdd2_usage;
+            break;
+        case TDI_HDD3_USAGE:
+            figure_value = theApp.m_hdd3_usage;
             break;
         //case TDI_CPU_FREQ:
         //    figure_value = theApp.m_cpu_freq;
@@ -414,7 +434,7 @@ void CTaskBarDlg::DrawDisplayItem(IDrawCommon& drawer, DisplayItem type, CRect r
             str_value = CCommon::DataSizeToString((static_cast<unsigned long long>(theApp.m_total_memory) - static_cast<unsigned long long>(theApp.m_used_memory)) * 1024, theApp.m_taskbar_data.separate_value_unit_with_space);
     }
     //绘制CPU或内存利用率
-    else if (type == TDI_CPU || type == TDI_MEMORY || type == TDI_GPU_USAGE || type == TDI_HDD_USAGE)
+    else if (type == TDI_CPU || type == TDI_MEMORY || type == TDI_GPU_USAGE || type == TDI_HDD_USAGE || type == TDI_HDD1_USAGE || type == TDI_HDD2_USAGE || type == TDI_HDD3_USAGE)
     {
         int usage{};
         switch (type)
@@ -431,6 +451,15 @@ void CTaskBarDlg::DrawDisplayItem(IDrawCommon& drawer, DisplayItem type, CRect r
         case TDI_HDD_USAGE:
             usage = theApp.m_hdd_usage;
             break;
+        case TDI_HDD1_USAGE:
+            usage = theApp.m_hdd1_usage;
+            break;
+        case TDI_HDD2_USAGE:
+            usage = theApp.m_hdd2_usage;
+            break;
+        case TDI_HDD3_USAGE:
+            usage = theApp.m_hdd3_usage;
+            break;
         default:
             break;
         }
@@ -443,7 +472,7 @@ void CTaskBarDlg::DrawDisplayItem(IDrawCommon& drawer, DisplayItem type, CRect r
     }
 
     //绘制温度
-    else if (type == TDI_CPU_TEMP || type == TDI_GPU_TEMP || type == TDI_HDD_TEMP || type == TDI_MAIN_BOARD_TEMP)
+    else if (type == TDI_CPU_TEMP || type == TDI_GPU_TEMP || type == TDI_HDD_TEMP || type == TDI_HDD1_TEMP || type == TDI_HDD2_TEMP || type == TDI_HDD3_TEMP || type == TDI_MAIN_BOARD_TEMP)
     {
         int temperature{};
         switch (type)
@@ -456,6 +485,15 @@ void CTaskBarDlg::DrawDisplayItem(IDrawCommon& drawer, DisplayItem type, CRect r
             break;
         case TDI_HDD_TEMP:
             temperature = theApp.m_hdd_temperature;
+            break;
+        case TDI_HDD1_TEMP:
+            temperature = theApp.m_hdd1_temperature;
+            break;
+        case TDI_HDD2_TEMP:
+            temperature = theApp.m_hdd2_temperature;
+            break;
+        case TDI_HDD3_TEMP:
+            temperature = theApp.m_hdd3_temperature;
             break;
         case TDI_MAIN_BOARD_TEMP:
             temperature = theApp.m_main_board_temperature;
@@ -912,6 +950,21 @@ CString CTaskBarDlg::GetMouseTipsInfo()
             temp.Format(_T("\r\n%s: %s"), CCommon::LoadText(IDS_HDD_TEMPERATURE), CCommon::TemperatureToString(theApp.m_hdd_temperature, theApp.m_taskbar_data));
             tip_info += temp;
         }
+        if (!IsItemShow(TDI_HDD1_TEMP) && theApp.m_hdd1_temperature > 0)
+        {
+            temp.Format(_T("\r\n%s: %s"), CCommon::LoadText(IDS_HDD1_TEMPERATURE), CCommon::TemperatureToString(theApp.m_hdd1_temperature, theApp.m_taskbar_data));
+            tip_info += temp;
+        }
+        if (!IsItemShow(TDI_HDD2_TEMP) && theApp.m_hdd2_temperature > 0)
+        {
+            temp.Format(_T("\r\n%s: %s"), CCommon::LoadText(IDS_HDD2_TEMPERATURE), CCommon::TemperatureToString(theApp.m_hdd2_temperature, theApp.m_taskbar_data));
+            tip_info += temp;
+        }
+        if (!IsItemShow(TDI_HDD3_TEMP) && theApp.m_hdd3_temperature > 0)
+        {
+            temp.Format(_T("\r\n%s: %s"), CCommon::LoadText(IDS_HDD3_TEMPERATURE), CCommon::TemperatureToString(theApp.m_hdd3_temperature, theApp.m_taskbar_data));
+            tip_info += temp;
+        }
         if (!IsItemShow(TDI_MAIN_BOARD_TEMP) && theApp.m_main_board_temperature > 0)
         {
             temp.Format(_T("\r\n%s: %s"), CCommon::LoadText(IDS_MAINBOARD_TEMPERATURE), CCommon::TemperatureToString(theApp.m_main_board_temperature, theApp.m_taskbar_data));
@@ -920,6 +973,21 @@ CString CTaskBarDlg::GetMouseTipsInfo()
         if (!IsItemShow(TDI_HDD_USAGE) && theApp.m_hdd_usage >= 0)
         {
             temp.Format(_T("\r\n%s: %d %%"), CCommon::LoadText(IDS_HDD_USAGE), theApp.m_hdd_usage);
+            tip_info += temp;
+        }
+        if (!IsItemShow(TDI_HDD1_USAGE) && theApp.m_hdd1_usage >= 0)
+        {
+            temp.Format(_T("\r\n%s: %d %%"), CCommon::LoadText(IDS_HDD1_USAGE), theApp.m_hdd1_usage);
+            tip_info += temp;
+        }
+        if (!IsItemShow(TDI_HDD2_USAGE) && theApp.m_hdd2_usage >= 0)
+        {
+            temp.Format(_T("\r\n%s: %d %%"), CCommon::LoadText(IDS_HDD2_USAGE), theApp.m_hdd2_usage);
+            tip_info += temp;
+        }
+        if (!IsItemShow(TDI_HDD3_USAGE) && theApp.m_hdd3_usage >= 0)
+        {
+            temp.Format(_T("\r\n%s: %d %%"), CCommon::LoadText(IDS_HDD3_USAGE), theApp.m_hdd3_usage);
             tip_info += temp;
         }
     }
@@ -1047,6 +1115,9 @@ void CTaskBarDlg::CalculateWindowSize()
     item_widths[TDI_MEMORY].value_width = memory_width;
     item_widths[TDI_GPU_USAGE].value_width = value_width;
     item_widths[TDI_HDD_USAGE].value_width = value_width;
+    item_widths[TDI_HDD1_USAGE].value_width = value_width;
+    item_widths[TDI_HDD2_USAGE].value_width = value_width;
+    item_widths[TDI_HDD3_USAGE].value_width = value_width;
 
     item_widths[TDI_CPU_FREQ].value_width = m_pDC->GetTextExtent(_T("1.00 GHz")).cx;
 
@@ -1060,6 +1131,9 @@ void CTaskBarDlg::CalculateWindowSize()
     item_widths[TDI_CPU_TEMP].value_width = value_width;
     item_widths[TDI_GPU_TEMP].value_width = value_width;
     item_widths[TDI_HDD_TEMP].value_width = value_width;
+    item_widths[TDI_HDD1_TEMP].value_width = value_width;
+    item_widths[TDI_HDD2_TEMP].value_width = value_width;
+    item_widths[TDI_HDD3_TEMP].value_width = value_width;
     item_widths[TDI_MAIN_BOARD_TEMP].value_width = value_width;
 
     //计算插件项目的宽度

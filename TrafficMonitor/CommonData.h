@@ -330,6 +330,9 @@ struct GeneralSettingData
     NotifyTipSettings cpu_temp_tip;         //CPU温度超出提示
     NotifyTipSettings gpu_temp_tip;         //显卡温度超出提示
     NotifyTipSettings hdd_temp_tip;         //硬盘温度超出提示
+    NotifyTipSettings hdd1_temp_tip;         //硬盘1温度超出提示
+    NotifyTipSettings hdd2_temp_tip;         //硬盘2温度超出提示
+    NotifyTipSettings hdd3_temp_tip;         //硬盘3温度超出提示
     NotifyTipSettings mainboard_temp_tip;   //主板温度超出提示
 
 
@@ -343,6 +346,9 @@ struct GeneralSettingData
     int monitor_time_span{ 1000 };    //监控的时间间隔
 
     std::wstring hard_disk_name;        //要监控的硬盘名称
+    std::wstring hard_disk_1_name;        //要监控的硬盘1名称
+    std::wstring hard_disk_2_name;        //要监控的硬盘2名称
+    std::wstring hard_disk_3_name;        //要监控的硬盘3名称
     std::wstring cpu_core_name;         //要监控的CPU核心的名称
 
     unsigned int hardware_monitor_item{};   //要监控哪些硬件

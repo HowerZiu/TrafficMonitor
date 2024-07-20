@@ -357,7 +357,7 @@ void CSkinFile::DrawPreview(CDC* pDC, CRect rect)
         case TDI_MEMORY:
             draw_str.value = _T("51 %");
             break;
-        case TDI_CPU_TEMP: case TDI_GPU_TEMP: case TDI_HDD_TEMP: case TDI_MAIN_BOARD_TEMP:
+        case TDI_CPU_TEMP: case TDI_GPU_TEMP: case TDI_HDD_TEMP: case TDI_HDD1_TEMP: case TDI_HDD2_TEMP: case TDI_HDD3_TEMP: case TDI_MAIN_BOARD_TEMP:
             draw_str.value = _T("40 °C");
             break;
         case TDI_CPU_FREQ:
@@ -484,10 +484,16 @@ void CSkinFile::DrawInfo(CDC* pDC, bool show_more_info, CFont& font)
         map_str[TDI_MEMORY].label = theApp.m_main_wnd_data.disp_str.Get(TDI_MEMORY).c_str();
         map_str[TDI_GPU_USAGE].label = theApp.m_main_wnd_data.disp_str.Get(TDI_GPU_USAGE).c_str();
         map_str[TDI_HDD_USAGE].label = theApp.m_main_wnd_data.disp_str.Get(TDI_HDD_USAGE).c_str();
+        map_str[TDI_HDD1_USAGE].label = theApp.m_main_wnd_data.disp_str.Get(TDI_HDD1_USAGE).c_str();
+        map_str[TDI_HDD2_USAGE].label = theApp.m_main_wnd_data.disp_str.Get(TDI_HDD2_USAGE).c_str();
+        map_str[TDI_HDD3_USAGE].label = theApp.m_main_wnd_data.disp_str.Get(TDI_HDD3_USAGE).c_str();
         map_str[TDI_CPU_TEMP].label = theApp.m_main_wnd_data.disp_str.Get(TDI_CPU_TEMP).c_str();
         map_str[TDI_CPU_FREQ].label = theApp.m_main_wnd_data.disp_str.Get(TDI_CPU_FREQ).c_str();
         map_str[TDI_GPU_TEMP].label = theApp.m_main_wnd_data.disp_str.Get(TDI_GPU_TEMP).c_str();
         map_str[TDI_HDD_TEMP].label = theApp.m_main_wnd_data.disp_str.Get(TDI_HDD_TEMP).c_str();
+        map_str[TDI_HDD1_TEMP].label = theApp.m_main_wnd_data.disp_str.Get(TDI_HDD1_TEMP).c_str();
+        map_str[TDI_HDD2_TEMP].label = theApp.m_main_wnd_data.disp_str.Get(TDI_HDD2_TEMP).c_str();
+        map_str[TDI_HDD3_TEMP].label = theApp.m_main_wnd_data.disp_str.Get(TDI_HDD3_TEMP).c_str();
         map_str[TDI_MAIN_BOARD_TEMP].label = theApp.m_main_wnd_data.disp_str.Get(TDI_MAIN_BOARD_TEMP).c_str();
     }
 
@@ -524,6 +530,9 @@ void CSkinFile::DrawInfo(CDC* pDC, bool show_more_info, CFont& font)
     map_str[TDI_MEMORY].value = str_memory_value;
     map_str[TDI_GPU_USAGE].value = CCommon::UsageToString(theApp.m_gpu_usage, theApp.m_main_wnd_data);
     map_str[TDI_HDD_USAGE].value = CCommon::UsageToString(theApp.m_hdd_usage, theApp.m_main_wnd_data);
+    map_str[TDI_HDD1_USAGE].value = CCommon::UsageToString(theApp.m_hdd1_usage, theApp.m_main_wnd_data);
+    map_str[TDI_HDD2_USAGE].value = CCommon::UsageToString(theApp.m_hdd2_usage, theApp.m_main_wnd_data);
+    map_str[TDI_HDD3_USAGE].value = CCommon::UsageToString(theApp.m_hdd3_usage, theApp.m_main_wnd_data);
 
     //温度
     auto getTemperatureStr = [&](DisplayItem display_item, float temperature)
@@ -533,6 +542,9 @@ void CSkinFile::DrawInfo(CDC* pDC, bool show_more_info, CFont& font)
     getTemperatureStr(TDI_CPU_TEMP, theApp.m_cpu_temperature);
     getTemperatureStr(TDI_GPU_TEMP, theApp.m_gpu_temperature);
     getTemperatureStr(TDI_HDD_TEMP, theApp.m_hdd_temperature);
+    getTemperatureStr(TDI_HDD1_TEMP, theApp.m_hdd1_temperature);
+    getTemperatureStr(TDI_HDD2_TEMP, theApp.m_hdd2_temperature);
+    getTemperatureStr(TDI_HDD3_TEMP, theApp.m_hdd3_temperature);
     getTemperatureStr(TDI_MAIN_BOARD_TEMP, theApp.m_main_board_temperature);
 
     //获取文本颜色
@@ -642,11 +654,29 @@ string CSkinFile::GetDisplayItemXmlNodeName(DisplayItem display_item)
     case TDI_HDD_TEMP:
         return "hdd_temperature";
         break;
+    case TDI_HDD1_TEMP:
+        return "hdd1_temperature";
+        break;
+    case TDI_HDD2_TEMP:
+        return "hdd2_temperature";
+        break;
+    case TDI_HDD3_TEMP:
+        return "hdd3_temperature";
+        break;
     case TDI_MAIN_BOARD_TEMP:
         return "main_board_temperature";
         break;
     case TDI_HDD_USAGE:
         return "hdd";
+        break;
+    case TDI_HDD1_USAGE:
+        return "hdd1";
+        break;
+    case TDI_HDD2_USAGE:
+        return "hdd2";
+        break;
+    case TDI_HDD3_USAGE:
+        return "hdd3";
         break;
     case TDI_CPU_FREQ:
         return "cpu_freq";

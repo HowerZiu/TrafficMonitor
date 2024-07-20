@@ -47,8 +47,14 @@ protected:
     CSpinEdit m_cpu_temp_tip_edit;
     CSpinEdit m_gpu_temp_tip_edit;
     CSpinEdit m_hdd_temp_tip_edit;
+    CSpinEdit m_hdd1_temp_tip_edit;
+    CSpinEdit m_hdd2_temp_tip_edit;
+    CSpinEdit m_hdd3_temp_tip_edit;
     CSpinEdit m_mbd_temp_tip_edit;
     CComboBox2 m_hard_disk_combo;
+    CComboBox2 m_hard_disk_1_combo;
+    CComboBox2 m_hard_disk_2_combo;
+    CComboBox2 m_hard_disk_3_combo;
     CComboBox2 m_select_cpu_combo;
     CButton m_plugin_manager_btn;
     CButton m_select_connection_btn;
@@ -103,4 +109,10 @@ public:
     afx_msg void OnBnClickedShowNotifyIconCheck();
     afx_msg void OnBnClickedSelectConnectionsButton();
     afx_msg void OnBnClickedResetAutoRunButton();
+    afx_msg void OnBnClickedHdd1TempTipCheck();
+    afx_msg void OnBnClickedHdd2TempTipCheck();
+    afx_msg void OnBnClickedHdd3TempTipCheck();
+    afx_msg void OnCbnSelchangeSelectHardDisk1Combo();
+    afx_msg void OnCbnSelchangeSelectHardDisk2Combo();
+    afx_msg void OnCbnSelchangeSelectHardDisk3Combo();
 };

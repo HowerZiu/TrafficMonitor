@@ -193,6 +193,21 @@ CString CTrafficMonitorDlg::GetMouseTipsInfo()
             temp.Format(_T("\r\n%s: %s"), CCommon::LoadText(IDS_HDD_TEMPERATURE), CCommon::TemperatureToString(theApp.m_hdd_temperature, theApp.m_main_wnd_data));
             tip_info += temp;
         }
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && !skin_layout.GetItem(TDI_HDD1_TEMP).show && theApp.m_hdd1_temperature > 0)
+        {
+            temp.Format(_T("\r\n%s: %s"), CCommon::LoadText(IDS_HDD1_TEMPERATURE), CCommon::TemperatureToString(theApp.m_hdd1_temperature, theApp.m_main_wnd_data));
+            tip_info += temp;
+        }
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && !skin_layout.GetItem(TDI_HDD2_TEMP).show && theApp.m_hdd2_temperature > 0)
+        {
+            temp.Format(_T("\r\n%s: %s"), CCommon::LoadText(IDS_HDD2_TEMPERATURE), CCommon::TemperatureToString(theApp.m_hdd2_temperature, theApp.m_main_wnd_data));
+            tip_info += temp;
+        }
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && !skin_layout.GetItem(TDI_HDD3_TEMP).show && theApp.m_hdd3_temperature > 0)
+        {
+            temp.Format(_T("\r\n%s: %s"), CCommon::LoadText(IDS_HDD3_TEMPERATURE), CCommon::TemperatureToString(theApp.m_hdd3_temperature, theApp.m_main_wnd_data));
+            tip_info += temp;
+        }
         if (theApp.m_general_data.IsHardwareEnable(HI_MBD) && !skin_layout.GetItem(TDI_MAIN_BOARD_TEMP).show && theApp.m_main_board_temperature > 0)
         {
             temp.Format(_T("\r\n%s: %s"), CCommon::LoadText(IDS_MAINBOARD_TEMPERATURE), CCommon::TemperatureToString(theApp.m_main_board_temperature, theApp.m_main_wnd_data));
@@ -201,6 +216,21 @@ CString CTrafficMonitorDlg::GetMouseTipsInfo()
         if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && !skin_layout.GetItem(TDI_HDD_USAGE).show && theApp.m_hdd_usage >= 0)
         {
             temp.Format(_T("\r\n%s: %d %%"), CCommon::LoadText(IDS_HDD_USAGE), theApp.m_hdd_usage);
+            tip_info += temp;
+        }
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && !skin_layout.GetItem(TDI_HDD1_USAGE).show && theApp.m_hdd1_usage >= 0)
+        {
+            temp.Format(_T("\r\n%s: %d %%"), CCommon::LoadText(IDS_HDD1_USAGE), theApp.m_hdd1_usage);
+            tip_info += temp;
+        }
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && !skin_layout.GetItem(TDI_HDD2_USAGE).show && theApp.m_hdd2_usage >= 0)
+        {
+            temp.Format(_T("\r\n%s: %d %%"), CCommon::LoadText(IDS_HDD2_USAGE), theApp.m_hdd2_usage);
+            tip_info += temp;
+        }
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && !skin_layout.GetItem(TDI_HDD3_USAGE).show && theApp.m_hdd3_usage >= 0)
+        {
+            temp.Format(_T("\r\n%s: %d %%"), CCommon::LoadText(IDS_HDD3_USAGE), theApp.m_hdd3_usage);
             tip_info += temp;
         }
     }
@@ -630,10 +660,22 @@ void CTrafficMonitorDlg::UpdateNotifyIconTip()
             strTip += CCommon::StringFormat(_T("\r\n<%1%>: <%2%> °C"), { CCommon::LoadText(IDS_GPU_TEMPERATURE), static_cast<int>(theApp.m_gpu_temperature) });
         if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && theApp.m_hdd_temperature > 0)
             strTip += CCommon::StringFormat(_T("\r\n<%1%>: <%2%> °C"), { CCommon::LoadText(IDS_HDD_TEMPERATURE), static_cast<int>(theApp.m_hdd_temperature) });
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && theApp.m_hdd1_temperature > 0)
+            strTip += CCommon::StringFormat(_T("\r\n<%1%>: <%2%> °C"), { CCommon::LoadText(IDS_HDD1_TEMPERATURE), static_cast<int>(theApp.m_hdd1_temperature) });
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && theApp.m_hdd2_temperature > 0)
+            strTip += CCommon::StringFormat(_T("\r\n<%1%>: <%2%> °C"), { CCommon::LoadText(IDS_HDD2_TEMPERATURE), static_cast<int>(theApp.m_hdd2_temperature) });
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && theApp.m_hdd3_temperature > 0)
+            strTip += CCommon::StringFormat(_T("\r\n<%1%>: <%2%> °C"), { CCommon::LoadText(IDS_HDD3_TEMPERATURE), static_cast<int>(theApp.m_hdd3_temperature) });
         if (theApp.m_general_data.IsHardwareEnable(HI_MBD) && theApp.m_main_board_temperature > 0)
             strTip += CCommon::StringFormat(_T("\r\n<%1%>: <%2%> °C"), { CCommon::LoadText(IDS_MAINBOARD_TEMPERATURE), static_cast<int>(theApp.m_main_board_temperature) });
         if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && theApp.m_hdd_usage >= 0)
             strTip += CCommon::StringFormat(_T("\r\n<%1%>: <%2%> %"), { CCommon::LoadText(IDS_HDD_USAGE), theApp.m_hdd_usage });
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && theApp.m_hdd1_usage >= 0)
+            strTip += CCommon::StringFormat(_T("\r\n<%1%>: <%2%> %"), { CCommon::LoadText(IDS_HDD1_USAGE), theApp.m_hdd1_usage });
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && theApp.m_hdd2_usage >= 0)
+            strTip += CCommon::StringFormat(_T("\r\n<%1%>: <%2%> %"), { CCommon::LoadText(IDS_HDD2_USAGE), theApp.m_hdd2_usage });
+        if (theApp.m_general_data.IsHardwareEnable(HI_HDD) && theApp.m_hdd3_usage >= 0)
+            strTip += CCommon::StringFormat(_T("\r\n<%1%>: <%2%> %"), { CCommon::LoadText(IDS_HDD3_USAGE), theApp.m_hdd3_usage });
     }
 
     CCommon::WStringCopy(m_ntIcon.szTip, 128, strTip);
@@ -1342,10 +1384,34 @@ UINT CTrafficMonitorDlg::MonitorThreadCallback(LPVOID dwUser)
                 theApp.m_general_data.hard_disk_name = iter->first;
             }
             theApp.m_hdd_temperature = iter->second;
+            iter = theApp.m_pMonitor->AllHDDTemperature().find(theApp.m_general_data.hard_disk_1_name);
+            if (iter == theApp.m_pMonitor->AllHDDTemperature().end())
+            {
+                iter = theApp.m_pMonitor->AllHDDTemperature().begin();
+                theApp.m_general_data.hard_disk_1_name = iter->first;
+            }
+            theApp.m_hdd1_temperature = iter->second;
+            iter = theApp.m_pMonitor->AllHDDTemperature().find(theApp.m_general_data.hard_disk_2_name);
+            if (iter == theApp.m_pMonitor->AllHDDTemperature().end())
+            {
+                iter = theApp.m_pMonitor->AllHDDTemperature().begin();
+                theApp.m_general_data.hard_disk_2_name = iter->first;
+            }
+            theApp.m_hdd2_temperature = iter->second;
+            iter = theApp.m_pMonitor->AllHDDTemperature().find(theApp.m_general_data.hard_disk_3_name);
+            if (iter == theApp.m_pMonitor->AllHDDTemperature().end())
+            {
+                iter = theApp.m_pMonitor->AllHDDTemperature().begin();
+                theApp.m_general_data.hard_disk_3_name = iter->first;
+            }
+            theApp.m_hdd3_temperature = iter->second;
         }
         else
         {
             theApp.m_hdd_temperature = -1;
+            theApp.m_hdd1_temperature = -1;
+            theApp.m_hdd2_temperature = -1;
+            theApp.m_hdd3_temperature = -1;
         }
         //获取硬盘利用率
         if (!theApp.m_pMonitor->AllHDDUsage().empty())
@@ -1357,10 +1423,34 @@ UINT CTrafficMonitorDlg::MonitorThreadCallback(LPVOID dwUser)
                 theApp.m_general_data.hard_disk_name = iter->first;
             }
             theApp.m_hdd_usage = iter->second;
+            iter = theApp.m_pMonitor->AllHDDUsage().find(theApp.m_general_data.hard_disk_1_name);
+            if (iter == theApp.m_pMonitor->AllHDDUsage().end())
+            {
+                iter = theApp.m_pMonitor->AllHDDUsage().begin();
+                theApp.m_general_data.hard_disk_1_name = iter->first;
+            }
+            theApp.m_hdd1_usage = iter->second;
+            iter = theApp.m_pMonitor->AllHDDUsage().find(theApp.m_general_data.hard_disk_2_name);
+            if (iter == theApp.m_pMonitor->AllHDDUsage().end())
+            {
+                iter = theApp.m_pMonitor->AllHDDUsage().begin();
+                theApp.m_general_data.hard_disk_2_name = iter->first;
+            }
+            theApp.m_hdd2_usage = iter->second;
+            iter = theApp.m_pMonitor->AllHDDUsage().find(theApp.m_general_data.hard_disk_3_name);
+            if (iter == theApp.m_pMonitor->AllHDDUsage().end())
+            {
+                iter = theApp.m_pMonitor->AllHDDUsage().begin();
+                theApp.m_general_data.hard_disk_3_name = iter->first;
+            }
+            theApp.m_hdd3_usage = iter->second;
         }
         else
         {
             theApp.m_hdd_usage = -1;
+            theApp.m_hdd1_usage = -1;
+            theApp.m_hdd2_usage = -1;
+            theApp.m_hdd3_usage = -1;
         }
     }
     else
@@ -1368,9 +1458,15 @@ UINT CTrafficMonitorDlg::MonitorThreadCallback(LPVOID dwUser)
         theApp.m_cpu_temperature = -1;
         theApp.m_gpu_temperature = -1;
         theApp.m_hdd_temperature = -1;
+        theApp.m_hdd1_temperature = -1;
+        theApp.m_hdd2_temperature = -1;
+        theApp.m_hdd3_temperature = -1;
         theApp.m_main_board_temperature = -1;
         theApp.m_gpu_usage = -1;
         theApp.m_hdd_usage = -1;
+        theApp.m_hdd1_usage = -1;
+        theApp.m_hdd2_usage = -1;
+        theApp.m_hdd3_usage = -1;
     }
 #endif
 
@@ -1583,6 +1679,18 @@ void CTrafficMonitorDlg::OnTimer(UINT_PTR nIDEvent)
         static int last_hdd_temp;
         static int hdd_temp_notify_time{ -theApp.m_notify_interval };       //记录上次弹出提示时的时间
         checkNotifyTip(theApp.m_general_data.hdd_temp_tip, theApp.m_hdd_temperature, last_hdd_temp, hdd_temp_notify_time, info.GetString());
+        info.Format(CCommon::LoadText(IDS_HDD1_TEMPERATURE_EXCEED, _T(" %d°C!")), static_cast<int>(theApp.m_hdd1_temperature));
+        static int last_hdd1_temp;
+        static int hdd1_temp_notify_time{ -theApp.m_notify_interval };       //记录上次弹出提示时的时间
+        checkNotifyTip(theApp.m_general_data.hdd1_temp_tip, theApp.m_hdd1_temperature, last_hdd1_temp, hdd1_temp_notify_time, info.GetString());
+        info.Format(CCommon::LoadText(IDS_HDD2_TEMPERATURE_EXCEED, _T(" %d°C!")), static_cast<int>(theApp.m_hdd2_temperature));
+        static int last_hdd2_temp;
+        static int hdd2_temp_notify_time{ -theApp.m_notify_interval };       //记录上次弹出提示时的时间
+        checkNotifyTip(theApp.m_general_data.hdd2_temp_tip, theApp.m_hdd2_temperature, last_hdd2_temp, hdd2_temp_notify_time, info.GetString());
+        info.Format(CCommon::LoadText(IDS_HDD3_TEMPERATURE_EXCEED, _T(" %d°C!")), static_cast<int>(theApp.m_hdd3_temperature));
+        static int last_hdd3_temp;
+        static int hdd3_temp_notify_time{ -theApp.m_notify_interval };       //记录上次弹出提示时的时间
+        checkNotifyTip(theApp.m_general_data.hdd3_temp_tip, theApp.m_hdd3_temperature, last_hdd3_temp, hdd3_temp_notify_time, info.GetString());
 
         //检查是否要弹出主板温度使用率超出提示
         info.Format(CCommon::LoadText(IDS_MBD_TEMPERATURE_EXCEED, _T(" %d°C!")), static_cast<int>(theApp.m_main_board_temperature));

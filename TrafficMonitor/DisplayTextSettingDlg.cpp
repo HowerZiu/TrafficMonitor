@@ -152,11 +152,29 @@ void CDisplayTextSettingDlg::OnBnClickedRestoreDefaultButton()
             case TDI_HDD_TEMP:
                 default_text = CCommon::LoadText(IDS_HDD_DISP, _T(": "));
                 break;
+            case TDI_HDD1_TEMP:
+                default_text = CCommon::LoadText(IDS_HDD1_DISP, _T(": "));
+                break;
+            case TDI_HDD2_TEMP:
+                default_text = CCommon::LoadText(IDS_HDD2_DISP, _T(": "));
+                break;
+            case TDI_HDD3_TEMP:
+                default_text = CCommon::LoadText(IDS_HDD3_DISP, _T(": "));
+                break;
             case TDI_MAIN_BOARD_TEMP:
                 default_text = CCommon::LoadText(IDS_MAINBOARD_DISP, _T(": "));
                 break;
             case TDI_HDD_USAGE:
                 default_text = CCommon::LoadText(IDS_HDD_DISP, _T(": "));
+                break;
+            case TDI_HDD1_USAGE:
+                default_text = CCommon::LoadText(IDS_HDD1_DISP, _T(": "));
+                break;
+            case TDI_HDD2_USAGE:
+                default_text = CCommon::LoadText(IDS_HDD2_DISP, _T(": "));
+                break;
+            case TDI_HDD3_USAGE:
+                default_text = CCommon::LoadText(IDS_HDD3_DISP, _T(": "));
                 break;
             default:
                 break;

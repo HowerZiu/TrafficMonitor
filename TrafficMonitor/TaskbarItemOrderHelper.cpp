@@ -68,11 +68,29 @@ CString CommonDisplayItem::GetItemName() const
         case TDI_HDD_TEMP:
             item_name = CCommon::LoadText(IDS_HDD_TEMPERATURE);
             break;
+        case TDI_HDD1_TEMP:
+            item_name = CCommon::LoadText(IDS_HDD1_TEMPERATURE);
+            break;
+        case TDI_HDD2_TEMP:
+            item_name = CCommon::LoadText(IDS_HDD2_TEMPERATURE);
+            break;
+        case TDI_HDD3_TEMP:
+            item_name = CCommon::LoadText(IDS_HDD3_TEMPERATURE);
+            break;
         case TDI_MAIN_BOARD_TEMP:
             item_name = CCommon::LoadText(IDS_MAINBOARD_TEMPERATURE);
             break;
         case TDI_HDD_USAGE:
             item_name = CCommon::LoadText(IDS_HDD_USAGE);
+            break;
+        case TDI_HDD1_USAGE:
+            item_name = CCommon::LoadText(IDS_HDD1_USAGE);
+            break;
+        case TDI_HDD2_USAGE:
+            item_name = CCommon::LoadText(IDS_HDD2_USAGE);
+            break;
+        case TDI_HDD3_USAGE:
+            item_name = CCommon::LoadText(IDS_HDD3_USAGE);
             break;
         case TDI_CPU_FREQ:
             item_name = CCommon::LoadText(IDS_CPU_FREQ);
@@ -202,10 +220,22 @@ CString CTaskbarItemOrderHelper::GetItemDisplayName(CommonDisplayItem item)
             return CCommon::LoadText(IDS_GPU_TEMPERATURE);
         case TDI_HDD_TEMP:
             return CCommon::LoadText(IDS_HDD_TEMPERATURE);
+        case TDI_HDD1_TEMP:
+            return CCommon::LoadText(IDS_HDD1_TEMPERATURE);
+        case TDI_HDD2_TEMP:
+            return CCommon::LoadText(IDS_HDD2_TEMPERATURE);
+        case TDI_HDD3_TEMP:
+            return CCommon::LoadText(IDS_HDD3_TEMPERATURE);
         case TDI_MAIN_BOARD_TEMP:
             return CCommon::LoadText(IDS_MAINBOARD_TEMPERATURE);
         case TDI_HDD_USAGE:
             return CCommon::LoadText(IDS_HDD_USAGE);
+        case TDI_HDD1_USAGE:
+            return CCommon::LoadText(IDS_HDD1_USAGE);
+        case TDI_HDD2_USAGE:
+            return CCommon::LoadText(IDS_HDD2_USAGE);
+        case TDI_HDD3_USAGE:
+            return CCommon::LoadText(IDS_HDD3_USAGE);
         case TDI_CPU_FREQ:
             return CCommon::LoadText(IDS_CPU_FREQ);
         default:
@@ -224,7 +254,7 @@ bool CTaskbarItemOrderHelper::IsItemDisplayed(CommonDisplayItem item)
             displayed = false;
         if ((item == TDI_GPU_TEMP || item == TDI_GPU_USAGE) && !theApp.m_general_data.IsHardwareEnable(HI_GPU))
             displayed = false;
-        if ((item == TDI_HDD_TEMP || item == TDI_HDD_USAGE) && !theApp.m_general_data.IsHardwareEnable(HI_HDD))
+        if ((item == TDI_HDD_TEMP || item == TDI_HDD_USAGE || item == TDI_HDD1_TEMP || item == TDI_HDD1_USAGE || item == TDI_HDD2_TEMP || item == TDI_HDD2_USAGE || item == TDI_HDD3_TEMP || item == TDI_HDD3_USAGE) && !theApp.m_general_data.IsHardwareEnable(HI_HDD))
             displayed = false;
         if (item == TDI_MAIN_BOARD_TEMP && !theApp.m_general_data.IsHardwareEnable(HI_MBD))
             displayed = false;

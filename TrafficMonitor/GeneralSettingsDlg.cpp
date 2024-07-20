@@ -42,6 +42,12 @@ void CGeneralSettingsDlg::CheckTaskbarDisplayItem()
     {
         theApp.m_taskbar_data.m_tbar_display_item &= ~TDI_HDD_TEMP;
         theApp.m_taskbar_data.m_tbar_display_item &= ~TDI_HDD_USAGE;
+        theApp.m_taskbar_data.m_tbar_display_item &= ~TDI_HDD1_TEMP;
+        theApp.m_taskbar_data.m_tbar_display_item &= ~TDI_HDD1_USAGE;
+        theApp.m_taskbar_data.m_tbar_display_item &= ~TDI_HDD2_TEMP;
+        theApp.m_taskbar_data.m_tbar_display_item &= ~TDI_HDD2_USAGE;
+        theApp.m_taskbar_data.m_tbar_display_item &= ~TDI_HDD3_TEMP;
+        theApp.m_taskbar_data.m_tbar_display_item &= ~TDI_HDD3_USAGE;
     }
     if (!theApp.m_general_data.IsHardwareEnable(HI_MBD))
         theApp.m_taskbar_data.m_tbar_display_item &= ~TDI_MAIN_BOARD_TEMP;
@@ -57,8 +63,14 @@ void CGeneralSettingsDlg::SetControlMouseWheelEnable(bool enable)
     m_cpu_temp_tip_edit.SetMouseWheelEnable(enable);
     m_gpu_temp_tip_edit.SetMouseWheelEnable(enable);
     m_hdd_temp_tip_edit.SetMouseWheelEnable(enable);
+    m_hdd1_temp_tip_edit.SetMouseWheelEnable(enable);
+    m_hdd2_temp_tip_edit.SetMouseWheelEnable(enable);
+    m_hdd3_temp_tip_edit.SetMouseWheelEnable(enable);
     m_mbd_temp_tip_edit.SetMouseWheelEnable(enable);
     m_hard_disk_combo.SetMouseWheelEnable(enable);
+    m_hard_disk_1_combo.SetMouseWheelEnable(enable);
+    m_hard_disk_2_combo.SetMouseWheelEnable(enable);
+    m_hard_disk_3_combo.SetMouseWheelEnable(enable);
     m_select_cpu_combo.SetMouseWheelEnable(enable);
 }
 
@@ -111,8 +123,14 @@ void CGeneralSettingsDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_CPU_TEMP_TIP_EDIT, m_cpu_temp_tip_edit);
     DDX_Control(pDX, IDC_GPU_TEMP_TIP_EDIT, m_gpu_temp_tip_edit);
     DDX_Control(pDX, IDC_HDD_TIP_EDIT, m_hdd_temp_tip_edit);
+    DDX_Control(pDX, IDC_HDD1_TIP_EDIT, m_hdd1_temp_tip_edit);
+    DDX_Control(pDX, IDC_HDD2_TIP_EDIT, m_hdd2_temp_tip_edit);
+    DDX_Control(pDX, IDC_HDD3_TIP_EDIT, m_hdd3_temp_tip_edit);
     DDX_Control(pDX, IDC_MBD_TEMP_TIP_EDIT, m_mbd_temp_tip_edit);
     DDX_Control(pDX, IDC_SELECT_HARD_DISK_COMBO, m_hard_disk_combo);
+    DDX_Control(pDX, IDC_SELECT_HARD_DISK_1_COMBO, m_hard_disk_1_combo);
+    DDX_Control(pDX, IDC_SELECT_HARD_DISK_2_COMBO, m_hard_disk_2_combo);
+    DDX_Control(pDX, IDC_SELECT_HARD_DISK_3_COMBO, m_hard_disk_3_combo);
     DDX_Control(pDX, IDC_SELECT_CPU_COMBO, m_select_cpu_combo);
     DDX_Control(pDX, IDC_PLUGIN_MANAGE_BUTTON, m_plugin_manager_btn);
     DDX_Control(pDX, IDC_SELECT_CONNECTIONS_BUTTON, m_select_connection_btn);
@@ -126,9 +144,15 @@ void CGeneralSettingsDlg::SetControlEnable()
     m_cpu_temp_tip_edit.EnableWindow(m_data.cpu_temp_tip.enable);
     m_gpu_temp_tip_edit.EnableWindow(m_data.gpu_temp_tip.enable);
     m_hdd_temp_tip_edit.EnableWindow(m_data.hdd_temp_tip.enable);
+    m_hdd1_temp_tip_edit.EnableWindow(m_data.hdd1_temp_tip.enable);
+    m_hdd2_temp_tip_edit.EnableWindow(m_data.hdd2_temp_tip.enable);
+    m_hdd3_temp_tip_edit.EnableWindow(m_data.hdd3_temp_tip.enable);
     m_mbd_temp_tip_edit.EnableWindow(m_data.mainboard_temp_tip.enable);
 
     m_hard_disk_combo.EnableWindow(m_data.IsHardwareEnable(HI_HDD));
+    m_hard_disk_1_combo.EnableWindow(m_data.IsHardwareEnable(HI_HDD));
+    m_hard_disk_2_combo.EnableWindow(m_data.IsHardwareEnable(HI_HDD));
+    m_hard_disk_3_combo.EnableWindow(m_data.IsHardwareEnable(HI_HDD));
     m_select_cpu_combo.EnableWindow(m_data.IsHardwareEnable(HI_CPU));
 }
 
@@ -164,6 +188,12 @@ BEGIN_MESSAGE_MAP(CGeneralSettingsDlg, CTabDlg)
     ON_BN_CLICKED(IDC_SHOW_NOTIFY_ICON_CHECK, &CGeneralSettingsDlg::OnBnClickedShowNotifyIconCheck)
     ON_BN_CLICKED(IDC_SELECT_CONNECTIONS_BUTTON, &CGeneralSettingsDlg::OnBnClickedSelectConnectionsButton)
     ON_BN_CLICKED(IDC_RESET_AUTO_RUN_BUTTON, &CGeneralSettingsDlg::OnBnClickedResetAutoRunButton)
+    ON_BN_CLICKED(IDC_HDD1_TEMP_TIP_CHECK, &CGeneralSettingsDlg::OnBnClickedHdd1TempTipCheck)
+    ON_BN_CLICKED(IDC_HDD2_TEMP_TIP_CHECK, &CGeneralSettingsDlg::OnBnClickedHdd2TempTipCheck)
+    ON_BN_CLICKED(IDC_HDD3_TEMP_TIP_CHECK, &CGeneralSettingsDlg::OnBnClickedHdd3TempTipCheck)
+    ON_CBN_SELCHANGE(IDC_SELECT_HARD_DISK_1_COMBO, &CGeneralSettingsDlg::OnCbnSelchangeSelectHardDisk1Combo)
+    ON_CBN_SELCHANGE(IDC_SELECT_HARD_DISK_2_COMBO, &CGeneralSettingsDlg::OnCbnSelchangeSelectHardDisk2Combo)
+    ON_CBN_SELCHANGE(IDC_SELECT_HARD_DISK_3_COMBO, &CGeneralSettingsDlg::OnCbnSelchangeSelectHardDisk3Combo)
 END_MESSAGE_MAP()
 
 
@@ -233,6 +263,18 @@ BOOL CGeneralSettingsDlg::OnInitDialog()
     m_hdd_temp_tip_edit.SetRange(1, 100);
     m_hdd_temp_tip_edit.SetValue(m_data.hdd_temp_tip.tip_value);
 
+    CheckDlgButton(IDC_HDD1_TEMP_TIP_CHECK, m_data.hdd1_temp_tip.enable);
+    m_hdd1_temp_tip_edit.SetRange(1, 100);
+    m_hdd1_temp_tip_edit.SetValue(m_data.hdd1_temp_tip.tip_value);
+
+    CheckDlgButton(IDC_HDD2_TEMP_TIP_CHECK, m_data.hdd2_temp_tip.enable);
+    m_hdd2_temp_tip_edit.SetRange(1, 100);
+    m_hdd2_temp_tip_edit.SetValue(m_data.hdd2_temp_tip.tip_value);
+
+    CheckDlgButton(IDC_HDD3_TEMP_TIP_CHECK, m_data.hdd3_temp_tip.enable);
+    m_hdd3_temp_tip_edit.SetRange(1, 100);
+    m_hdd3_temp_tip_edit.SetValue(m_data.hdd3_temp_tip.tip_value);
+
     CheckDlgButton(IDC_MBD_TEMP_TIP_CHECK, m_data.mainboard_temp_tip.enable);
     m_mbd_temp_tip_edit.SetRange(1, 100);
     m_mbd_temp_tip_edit.SetValue(m_data.mainboard_temp_tip.tip_value);
@@ -275,9 +317,20 @@ BOOL CGeneralSettingsDlg::OnInitDialog()
         CSingleLock sync(&theApp.m_minitor_lib_critical, TRUE);
         //初始化选择硬盘下拉列表
         for (const auto& hdd_item : theApp.m_pMonitor->AllHDDTemperature())
+        {
             m_hard_disk_combo.AddString(hdd_item.first.c_str());
+            m_hard_disk_1_combo.AddString(hdd_item.first.c_str());
+            m_hard_disk_2_combo.AddString(hdd_item.first.c_str());
+            m_hard_disk_3_combo.AddString(hdd_item.first.c_str());
+        }
         int cur_index = m_hard_disk_combo.FindString(-1, m_data.hard_disk_name.c_str());
         m_hard_disk_combo.SetCurSel(cur_index);
+        cur_index = m_hard_disk_1_combo.FindString(-1, m_data.hard_disk_1_name.c_str());
+        m_hard_disk_1_combo.SetCurSel(cur_index);
+        cur_index = m_hard_disk_2_combo.FindString(-1, m_data.hard_disk_2_name.c_str());
+        m_hard_disk_2_combo.SetCurSel(cur_index);
+        cur_index = m_hard_disk_3_combo.FindString(-1, m_data.hard_disk_3_name.c_str());
+        m_hard_disk_3_combo.SetCurSel(cur_index);
         //初始化选择CPU下拉列表
         m_select_cpu_combo.AddString(CCommon::LoadText(IDS_AVREAGE_TEMPERATURE));
         for (const auto& cpu_item : theApp.m_pMonitor->AllCpuTemperature())
@@ -296,7 +349,13 @@ BOOL CGeneralSettingsDlg::OnInitDialog()
     EnableDlgCtrl(IDC_GPU_TEMP_TIP_CHECK, false);
     EnableDlgCtrl(IDC_GPU_TEMP_TIP_EDIT, false);
     EnableDlgCtrl(IDC_HDD_TEMP_TIP_CHECK, false);
+    EnableDlgCtrl(IDC_HDD1_TEMP_TIP_CHECK, false);
+    EnableDlgCtrl(IDC_HDD2_TEMP_TIP_CHECK, false);
+    EnableDlgCtrl(IDC_HDD3_TEMP_TIP_CHECK, false);
     EnableDlgCtrl(IDC_HDD_TIP_EDIT, false);
+    EnableDlgCtrl(IDC_HDD1_TIP_EDIT, false);
+    EnableDlgCtrl(IDC_HDD2_TIP_EDIT, false);
+    EnableDlgCtrl(IDC_HDD3_TIP_EDIT, false);
     EnableDlgCtrl(IDC_MBD_TEMP_TIP_CHECK, false);
     EnableDlgCtrl(IDC_MBD_TEMP_TIP_EDIT, false);
     EnableDlgCtrl(IDC_CPU_CHECK, false);
@@ -304,12 +363,21 @@ BOOL CGeneralSettingsDlg::OnInitDialog()
     EnableDlgCtrl(IDC_HDD_CHECK, false);
     EnableDlgCtrl(IDC_MBD_CHECK, false);
     EnableDlgCtrl(IDC_SELECT_HARD_DISK_COMBO, false);
+    EnableDlgCtrl(IDC_SELECT_HARD_DISK_1_COMBO, false);
+    EnableDlgCtrl(IDC_SELECT_HARD_DISK_2_COMBO, false);
+    EnableDlgCtrl(IDC_SELECT_HARD_DISK_3_COMBO, false);
     EnableDlgCtrl(IDC_SELECT_CPU_COMBO, false);
     EnableDlgCtrl(IDC_CPU_TEMP_STATIC, false);
     EnableDlgCtrl(IDC_GPU_TEMP_STATIC, false);
     EnableDlgCtrl(IDC_HDD_STATIC, false);
+    EnableDlgCtrl(IDC_HDD1_STATIC, false);
+    EnableDlgCtrl(IDC_HDD2_STATIC, false);
+    EnableDlgCtrl(IDC_HDD3_STATIC, false);
     EnableDlgCtrl(IDC_MBD_TEMP_STATIC, false);
     EnableDlgCtrl(IDC_SELECT_HDD_STATIC, false);
+    EnableDlgCtrl(IDC_SELECT_HDD1_STATIC, false);
+    EnableDlgCtrl(IDC_SELECT_HDD2_STATIC, false);
+    EnableDlgCtrl(IDC_SELECT_HDD3_STATIC, false);
     EnableDlgCtrl(IDC_SELECT_CPU_STATIC, false);
     EnableDlgCtrl(IDC_HARDWARE_MONITOR_STATIC, false);
 #endif
@@ -383,6 +451,15 @@ void CGeneralSettingsDlg::OnOK()
 
     m_data.hdd_temp_tip.tip_value = m_hdd_temp_tip_edit.GetValue();
     checkTipValue(m_data.hdd_temp_tip.tip_value);
+
+    m_data.hdd1_temp_tip.tip_value = m_hdd1_temp_tip_edit.GetValue();
+    checkTipValue(m_data.hdd1_temp_tip.tip_value);
+
+    m_data.hdd2_temp_tip.tip_value = m_hdd2_temp_tip_edit.GetValue();
+    checkTipValue(m_data.hdd2_temp_tip.tip_value);
+
+    m_data.hdd3_temp_tip.tip_value = m_hdd3_temp_tip_edit.GetValue();
+    checkTipValue(m_data.hdd3_temp_tip.tip_value);
 
     m_data.mainboard_temp_tip.tip_value = m_mbd_temp_tip_edit.GetValue();
     checkTipValue(m_data.mainboard_temp_tip.tip_value);
@@ -702,4 +779,55 @@ void CGeneralSettingsDlg::OnBnClickedResetAutoRunButton()
     CheckDlgButton(IDC_AUTO_RUN_CHECK, auto_run);
     //更新鼠标提示
     AddOrUpdateAutoRunTooltip(false);
+}
+
+
+void CGeneralSettingsDlg::OnBnClickedHdd1TempTipCheck()
+{
+    // TODO: 在此添加控件通知处理程序代码
+    m_data.hdd1_temp_tip.enable = (IsDlgButtonChecked(IDC_HDD1_TEMP_TIP_CHECK) != 0);
+    SetControlEnable();
+}
+
+
+void CGeneralSettingsDlg::OnBnClickedHdd2TempTipCheck()
+{
+    // TODO: 在此添加控件通知处理程序代码
+    m_data.hdd2_temp_tip.enable = (IsDlgButtonChecked(IDC_HDD2_TEMP_TIP_CHECK) != 0);
+    SetControlEnable();
+}
+
+
+void CGeneralSettingsDlg::OnBnClickedHdd3TempTipCheck()
+{
+    // TODO: 在此添加控件通知处理程序代码
+    m_data.hdd3_temp_tip.enable = (IsDlgButtonChecked(IDC_HDD3_TEMP_TIP_CHECK) != 0);
+    SetControlEnable();
+}
+
+
+void CGeneralSettingsDlg::OnCbnSelchangeSelectHardDisk1Combo()
+{
+    // TODO: 在此添加控件通知处理程序代码
+    CString hard_disk_1_name;
+    m_hard_disk_1_combo.GetWindowText(hard_disk_1_name);
+    m_data.hard_disk_1_name = hard_disk_1_name.GetString();
+}
+
+
+void CGeneralSettingsDlg::OnCbnSelchangeSelectHardDisk2Combo()
+{
+    // TODO: 在此添加控件通知处理程序代码
+    CString hard_disk_2_name;
+    m_hard_disk_2_combo.GetWindowText(hard_disk_2_name);
+    m_data.hard_disk_2_name = hard_disk_2_name.GetString();
+}
+
+
+void CGeneralSettingsDlg::OnCbnSelchangeSelectHardDisk3Combo()
+{
+    // TODO: 在此添加控件通知处理程序代码
+    CString hard_disk_3_name;
+    m_hard_disk_3_combo.GetWindowText(hard_disk_3_name);
+    m_data.hard_disk_3_name = hard_disk_3_name.GetString();
 }
