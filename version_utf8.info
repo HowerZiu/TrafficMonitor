@@ -1,15 +1,15 @@
 ﻿<version>1.84.1.1</version>
 <GitHub>
-	<link>https://github.com/HowerZiu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_V1.84.1.1_x86.zip</link>
-	<link_x64>https://github.com/HowerZiu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_V1.84.1.1_x64.zip</link_x64>
-	<link_without_temperature>https://github.com/HowerZiu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_V1.84.1.1_x86_Lite.zip</link_without_temperature>
-	<link_without_temperature_x64>https://github.com/HowerZiu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_V1.84.1.1_x64_Lite.zip</link_without_temperature_x64>
+	<link>https://github.com/HowerZiu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_4HDDS_V1.84.1.1_x86.zip</link>
+	<link_x64>https://github.com/HowerZiu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_4HDDS_V1.84.1.1_x64.zip</link_x64>
+	<link_without_temperature>https://github.com/HowerZiu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_4HDDS_V1.84.1.1_x86_Lite.zip</link_without_temperature>
+	<link_without_temperature_x64>https://github.com/HowerZiu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_4HDDS_V1.84.1.1_x64_Lite.zip</link_without_temperature_x64>
 </GitHub>
 <Gitee>
-	<link>https://gitee.com/howerziu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_V1.84.1.1_x86.zip</link>
-	<link_x64>https://gitee.com/howerziu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_V1.84.1.1_x64.zip</link_x64>
-	<link_without_temperature>https://gitee.com/howerziu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_V1.84.1.1_x86_Lite.zip</link_without_temperature>
-	<link_without_temperature_x64>https://gitee.com/howerziu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_V1.84.1.1_x64_Lite.zip</link_without_temperature_x64>
+	<link>https://gitee.com/howerziu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_4HDDS_V1.84.1.1_x86.zip</link>
+	<link_x64>https://gitee.com/howerziu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_4HDDS_V1.84.1.1_x64.zip</link_x64>
+	<link_without_temperature>https://gitee.com/howerziu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_4HDDS_V1.84.1.1_x86_Lite.zip</link_without_temperature>
+	<link_without_temperature_x64>https://gitee.com/howerziu/TrafficMonitor/releases/download/V1.84.1.1/TrafficMonitor_4HDDS_V1.84.1.1_x64_Lite.zip</link_without_temperature_x64>
 </Gitee>
 <update_contents>
 	<contents_zh_cn>额外提供3个硬盘的监控支持</contents_zh_cn>
