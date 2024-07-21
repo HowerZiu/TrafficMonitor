@@ -1,49 +1,25 @@
 **简体中文 | [English](./README_en-us.md)**<br>
 [![Badge](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg?style=flat-square)](https://996.icu/#/en_US)
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/zhongyang219/TrafficMonitor/main.yml?branch=master&label=Release%20CI&logo=github&style=flat-square)](https://github.com/zhongyang219/TrafficMonitor/actions?query=workflow:"Release+CI")
-[![GitHub release](https://img.shields.io/github/release/zhongyang219/TrafficMonitor.svg?style=flat-square)](https://github.com/zhongyang219/TrafficMonitor/releases/latest)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/HowerZiu/TrafficMonitor/main.yml?branch=master&label=Release%20CI&logo=github&style=flat-square)](https://github.com/HowerZiu/TrafficMonitor/actions?query=workflow:"Release+CI")
+[![GitHub release](https://img.shields.io/github/release/HowerZiu/TrafficMonitor.svg?style=flat-square)](https://github.com/HowerZiu/TrafficMonitor/releases/latest)
 
 # TrafficMonitor 简介
-Traffic Monitor是一款用于Windows平台的网速监控悬浮窗软件，可以显示当前网速、CPU及内存利用率，支持嵌入到任务栏显示，支持更换皮肤、历史流量统计等功能。
+Traffic Monitor 4HDDS基于Traffic Monitor额外提供3个硬盘的监控支持。[Traffic Monitor](https://github.com/zhongyang219/TrafficMonitor)是一款用于Windows平台的网速监控悬浮窗软件，可以显示当前网速、CPU及内存利用率，支持嵌入到任务栏显示，支持更换皮肤、历史流量统计等功能。
 
 # 相关链接：
 
-请[点击此处](https://github.com/zhongyang219/TrafficMonitor/releases/latest)下载TrafficMonitor的最新版本。<br>
-备用链接：[百度网盘下载](https://pan.baidu.com/s/15PMt7s-ASpyDwtS__4cUhg) 提取码：`ou0m`<br>
+请[点击此处](https://github.com/HowerZiu/TrafficMonitor/releases/latest)下载TrafficMonitor 4HDDS的最新版本。<br>
 
-国内用户如果遇到Github下载缓慢的问题，可以[点击此处](https://gitee.com/zhongyang219/TrafficMonitor)转到此项目在Gitee上的页面。
+国内用户如果遇到Github下载缓慢的问题，可以[点击此处](https://gitee.com/HowerZiu/TrafficMonitor)转到此项目在Gitee上的页面。
 
 如果遇到问题，请[点击此处](./Help.md)查看常见问题。<br>
 
-你也可以[点击此处](https://github.com/zhongyang219/TrafficMonitor/actions?query=workflow:"Release+CI")下载TrafficMonitor的预发行构建版本。
-
-从1.80版本开始，TrafficMonitor加入了温度监控功能，如果你不需要温度监控功能，并且在使用1.80以上版本中遇到了问题，建议下载不含温度监控的版本（Lite版本）。（在Release页面找到文件名包含`Lite`的版本。）
+你也可以[点击此处](https://github.com/HowerZiu/TrafficMonitor/actions?query=workflow:"Release+CI")下载TrafficMonitor 4HDDS的预发行构建版本。
 
 TrafficMonitor依赖于Microsoft Visual C++ 运行环境，如果程序启动时提示“找不到MSVC*.dll”，请点击以下链接下载并安装Microsoft Visual C++ 运行环境。
 
 [最新支持的 Visual C++ 可再发行程序包下载 | Microsoft Docs](https://docs.microsoft.com/zh-CN/cpp/windows/latest-supported-vc-redist?view=msvc-170)
-
-# 版本说明
-
-TrafficMonitor提供了普通版和Lite版两种版本可用。普通版包含了所有的功能，Lite版本则不包含温度监控、显卡利用率、硬盘利用率等硬件监控功能。普通版运行需要管理员权限，而Lite版本则不需要。
-
-如果没有监控温度等硬件信息的需要，建议使用Lite版。
-
-以下是两个版本功能对比。
-
-| 功能                          | 普通版 | Lite版 |
-| ----------------------------- | ------ | ------ |
-| 网速监控                      | ✔      | ✔      |
-| CPU、内存利用率          | ✔      | ✔      |
-| CPU、显卡、硬盘、主板温度监控  | ✔      | ❌      |
-| CPU频率监控 | ✔ | ❌ |
-| 显卡利用率监控                | ✔      | ❌      |
-| 硬盘利用率监控                | ✔      | ❌      |
-| 网络详细信息                  | ✔      | ✔      |
-| 插件系统                      | ✔      | ✔      |
-| 主窗口更换皮肤                | ✔      | ✔      |
-| 需要管理员权限                | 是     | 否     |
 
 # 主要特性
 

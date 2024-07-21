@@ -1,50 +1,25 @@
 **[简体中文](./README.md) | English**<br>
 [![Badge](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg?style=flat-square)](https://996.icu/#/en_US)
 [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg?style=flat-square)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/zhongyang219/TrafficMonitor/main.yml?branch=master&label=Release%20CI&logo=github&style=flat-square)](https://github.com/zhongyang219/TrafficMonitor/actions?query=workflow:"Release+CI")
-[![GitHub release](https://img.shields.io/github/release/zhongyang219/TrafficMonitor.svg?style=flat-square)](https://github.com/zhongyang219/TrafficMonitor/releases/latest)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/HowerZiu/TrafficMonitor/main.yml?branch=master&label=Release%20CI&logo=github&style=flat-square)](https://github.com/HowerZiu/TrafficMonitor/actions?query=workflow:"Release+CI")
+[![GitHub release](https://img.shields.io/github/release/HowerZiu/TrafficMonitor.svg?style=flat-square)](https://github.com/HowerZiu/TrafficMonitor/releases/latest)
 
 # TrafficMonitor Introduction
-TrafficMonitor is a network monitoring software with floating window feature for Windows. It displays the current internet speed and CPU and RAM usage. There are also other capabilities like an embedded display in the taksbar, changeable display skins, and historical traffic statistics. 
+Traffic Monitor 4HDDS, based on Traffic Monitor, provides monitoring support for three extra hard disks. [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor) is a network monitoring software with floating window feature for Windows. It displays the current internet speed and CPU and RAM usage. There are also other capabilities like an embedded display in the taksbar, changeable display skins, and historical traffic statistics. 
 
 # Related Links
 
-Please [click here](https://github.com/zhongyang219/TrafficMonitor/releases/latest) to download the latest version of TrafficMonitor. 
+Please [click here](https://github.com/HowerZiu/TrafficMonitor/releases/latest) to download the latest version of TrafficMonitor. 
 
-Alternate link: Download from [Baidu Netdisk](https://pan.baidu.com/s/15PMt7s-ASpyDwtS__4cUhg). Access code: `ou0m`  
-
-You can find the project page on Gitee by [clicking here](https://gitee.com/zhongyang219/TrafficMonitor)
+You can find the project page on Gitee by [clicking here](https://gitee.com/HowerZiu/TrafficMonitor)
 
 If you encounter any problems, please [click here](./Help_en-us.md) for frequently asked questions.  
 
-You can also [click here](https://github.com/zhongyang219/TrafficMonitor/actions?query=workflow:"Release+CI") to download the pre-release build version of TrafficMonitor.
-
-For version 1.80 and later, the temperature monitoring function has been added. If the user does not need the temperature monitoring function and encounters problems with version 1.80 or later, it is recommended to download the earlier version without the temperature monitor (Lite version). (You can find the `Lite` version on the Release page.)
+You can also [click here](https://github.com/HowerZiu/TrafficMonitor/actions?query=workflow:"Release+CI") to download the pre-release build version of TrafficMonitor.
 
 TrafficMonitor relies on the Microsoft Visual C++ operrating environment. If an error prompts "Cannot find MSVC*.dll" when the program starts, please click the link below to download and install the Microsoft Visual C++ operating environment.
 
 [Download the latest supported version of Visual C++ Redistributable Package | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)
-
-# Version description
-
-There are two versions of TrafficMonitor, the standard version and the Lite version. The standard version includes all the functions, while the Lite version does not include hardware monitoring functions such as temperature monitoring, GPU usage, and hard disk usage. The standard version requires administrator privilege to run, while the Lite version does not. 
-
-If there is no need to monitor the temperature and other hardware information, it is recommended to use the Lite version.
-
-See below for the functions comparison of the two versions.
-
-| Functions                                     | Standard Version | Lite Version |
-| --------------------------------------------- | ---------------- | ------------ |
-| Internet speed monitoring                     | ✔                | ✔            |
-| CPU and RAM usage monitoring                  | ✔                | ✔            |
-| CPU, GPU, hard disk, mother board temperature | ✔                | ❌            |
-| CPU frequency monitoring                      | ✔                | ❌            |
-| GPU usage monitoring                          | ✔                | ❌            |
-| Hard disk usage monitoring                    | ✔                | ❌            |
-| Network connection details                    | ✔                | ✔            |
-| Plug-in system                                | ✔                | ✔            |
-| Change the skin of the main window            | ✔                | ✔            |
-| Administrator privilege required              | Yes              | No           |
 
 # Main Features
 
