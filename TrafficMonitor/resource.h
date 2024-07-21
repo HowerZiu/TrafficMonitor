@@ -542,6 +542,7 @@
 #define IDS_HDD3_DISP                   7032
 #define IDS_HDD3_TEMPERATURE_EXCEED     7033
 #define IDS_HDD3_USAGE                  7034
+#define IDS_4HDDS                       7400
 #define ID_32771                        32771
 #define ID_NETWORK_INFO                 32772
 #define ID_32773                        32773

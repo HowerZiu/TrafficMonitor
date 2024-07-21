@@ -23,6 +23,7 @@ void CAboutDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_STATIC_ACKNOWLEDGEMENT, m_acknowledgement);
     DDX_Control(pDX, IDC_STATIC_GITHUB, m_github);
     DDX_Control(pDX, IDC_STATIC_DONATE, m_donate);
+    DDX_Control(pDX, IDC_STATIC_VERSION, m_version);
     DDX_Control(pDX, IDC_TRANSLATOR_STATIC, m_translaotr_static);
     DDX_Control(pDX, IDC_STATIC_LICENSE, m_license);
     DDX_Control(pDX, IDC_OPENHARDWAREMONITOR_LINK, m_openhardwaremonitor_link);
@@ -56,10 +57,12 @@ BOOL CAboutDlg::OnInitDialog()
     m_acknowledgement.SetLinkIsURL(false);
     m_license.SetLinkIsURL(false);
 
+    m_version.SetURL(_T("https://github.com/HowerZiu/TrafficMonitor"));
     m_openhardwaremonitor_link.SetURL(_T("https://github.com/LibreHardwareMonitor/LibreHardwareMonitor"));
     m_tinyxml2_link.SetURL(_T("https://github.com/leethomason/tinyxml2"));
     m_musicplayer2_link.SetURL(_T("https://github.com/zhongyang219/MusicPlayer2"));
     m_simplenotepad_link.SetURL(_T("https://github.com/zhongyang219/SimpleNotePad"));
+    m_version.SetBackgroundColor(GetSysColor(COLOR_WINDOW));
     m_openhardwaremonitor_link.SetBackgroundColor(GetSysColor(COLOR_WINDOW));
     m_tinyxml2_link.SetBackgroundColor(GetSysColor(COLOR_WINDOW));
     m_musicplayer2_link.SetBackgroundColor(GetSysColor(COLOR_WINDOW));
@@ -72,7 +75,9 @@ BOOL CAboutDlg::OnInitDialog()
 #ifdef WITHOUT_TEMPERATURE
     str_lite = CCommon::LoadText(_T(" ("), IDS_WITHOUT_TEMPERATURE, _T(")"));
 #endif
-    version_info = CCommon::StringFormat(version_info, { str_lite, VERSION });
+    CString str_4hdds;
+    str_4hdds = CCommon::LoadText(_T(" "), IDS_4HDDS);
+    version_info = CCommon::StringFormat(version_info, { str_4hdds + str_lite, VERSION });
 
 #ifdef COMPILE_FOR_WINXP
     version_info += _T(" (For WinXP)");
@@ -86,7 +91,7 @@ BOOL CAboutDlg::OnInitDialog()
     version_info += _T(" (Debug)");
 #endif
 
-    SetDlgItemText(IDC_STATIC_VERSION, version_info);
+    m_version.SetText(version_info);
 
     //设置最后编译日期
     CString temp_str;
@@ -101,6 +106,7 @@ BOOL CAboutDlg::OnInitDialog()
     m_tool_tip.AddTool(&m_github, CCommon::LoadText(IDS_GOTO_GITHUB, _T("\r\nhttps://github.com/zhongyang219/TrafficMonitor")));
     m_tool_tip.AddTool(&m_gitee, CCommon::LoadText(IDS_GOTO_GITEE, _T("\r\nhttps://gitee.com/zhongyang219/TrafficMonitor")));
     m_tool_tip.AddTool(&m_donate, CCommon::LoadText(IDS_DONATE_ATHOUR));
+    m_tool_tip.AddTool(&m_version, CCommon::LoadText(IDS_GOTO_GITHUB, _T("\r\nhttps://github.com/HowerZiu/TrafficMonitor")));
     m_tool_tip.AddTool(&m_openhardwaremonitor_link, m_openhardwaremonitor_link.GetURL());
     m_tool_tip.AddTool(&m_tinyxml2_link, m_tinyxml2_link.GetURL());
     m_tool_tip.AddTool(&m_musicplayer2_link, CCommon::LoadText(IDS_MUSICPLAYER2_DESCRIPTION) + _T("\r\n") + m_musicplayer2_link.GetURL());
