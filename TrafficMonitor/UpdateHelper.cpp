@@ -24,11 +24,11 @@ bool CUpdateHelper::CheckForUpdate()
     //使用GitHub更新源
     if (m_update_source == UpdateSource::GitHubSource)
     {
-        if (CCommon::GetURL(L"https://raw.githubusercontent.com/HowerZiu/TrafficMonitor/master/version_utf8.info", version_info, true))     //获取版本信息
+        if (CCommon::GetURL(L"https://raw.githubusercontent.com/HowerZiu/TrafficMonitor/4hdds/version_utf8.info", version_info, true))     //获取版本信息
         {
             m_row_data = true;
         }
-        else if (CCommon::GetURL(L"https://github.com/HowerZiu/TrafficMonitor/blob/master/version_utf8.info", version_info, true))      //获取版本信息
+        else if (CCommon::GetURL(L"https://github.com/HowerZiu/TrafficMonitor/blob/4hdds/version_utf8.info", version_info, true))      //获取版本信息
         {
             m_row_data = false;
         }
@@ -53,7 +53,7 @@ bool CUpdateHelper::CheckForUpdate()
     //使用Gitee更新源
     else
     {
-        if (!CCommon::GetURL(L"https://gitee.com/howerziu/TrafficMonitor/raw/master/version_utf8.info", version_info, true))     //获取版本信息
+        if (!CCommon::GetURL(L"https://gitee.com/howerziu/TrafficMonitor/raw/4hdds/version_utf8.info", version_info, true))     //获取版本信息
             return false;
     }
 
