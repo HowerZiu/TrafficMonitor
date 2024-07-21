@@ -1374,7 +1374,7 @@ void CTrafficMonitorApp::OnFrequentyAskedQuestions()
     else
         file_name = _T("Help_en-us.md");
     CString url;
-    url.Format(_T("https://%s/zhongyang219/TrafficMonitor/blob/master/%s"), url_domain.GetString(), file_name.GetString());
+    url.Format(_T("https://%s/howerziu/TrafficMonitor/blob/4hdds/%s"), url_domain.GetString(), file_name.GetString());
     ShellExecute(NULL, _T("open"), url, NULL, NULL, SW_SHOW);
 }
 
@@ -1396,6 +1396,6 @@ void CTrafficMonitorApp::OnUpdateLog()
     else
         file_name = _T("update_log_en-us.md");
     CString url;
-    url.Format(_T("https://%s/zhongyang219/TrafficMonitor/blob/master/UpdateLog/%s"), url_domain.GetString(), file_name.GetString());
+    url.Format(_T("https://%s/howerziu/TrafficMonitor/blob/4hdds/UpdateLog/%s"), url_domain.GetString(), file_name.GetString());
     ShellExecute(NULL, _T("open"), url, NULL, NULL, SW_SHOW);
 }
